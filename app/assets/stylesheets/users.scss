@@ -3,6 +3,9 @@
 .user-table {
   vertical-align: middle;
   text-align: center;
+  td {
+    vertical-align: middle;
+  }
 }
 
 #table-attendances {
@@ -34,19 +37,13 @@
   margin-top: 10px;
 }
 
+.btn-basic-info {
+  margin-top: 10px;
+}
+
 // ユーザー一覧ページ
 #table-users {
   td{
     vertical-align: middle;
   }
-}
-
-// 基本情報モーダルウィンドウ
-.label-basic-info {
-  margin-top: 5px;
-}
-
-.btn-basic-info {
-  margin: 15px 0;
-  width: 30%;
 }
