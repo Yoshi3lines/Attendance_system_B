@@ -9,6 +9,13 @@ class ApplicationController < ActionController::Base
     @user = User.find(params[:id])
   end
   
+  def admin_or_correct #新たに追加
+    unless current_user?(@user) || current_user.admin?
+      flash[:danger] = "権限がありません。"
+      redirect_to root_url
+    end
+  end
+  
   # ログイン済みのユーザーなのかを確認する。
   def logged_in_user
     unless logged_in?
