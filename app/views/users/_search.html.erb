@@ -1,0 +1,11 @@
+<% provide(:title, '検索結果') %>
+
+<div class="row">
+  <div class="col-md-4 col-md-offset-8">
+    <p>ユーザー名検索</p>
+    <%= form_with url: users_path, local: true, :method => 'get' do %>
+      <%= text_field_tag :search %>
+      <%= submit_tag '検索', :name => nil %>
+    <% end %>
+  </div>
+</div>

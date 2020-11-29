@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   
-  # 検索機能
-  get 'search', to: 'users#search'
-
   resources :users do
     member do
       get 'edit_basic_info'

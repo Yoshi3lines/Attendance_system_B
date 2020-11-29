@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   before_action :admin_or_correct, only: [:edit, :show, :update] # 新たに追加
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page]).search(params[:search])
   end
   
   def new
@@ -59,13 +59,6 @@ class UsersController < ApplicationController
     redirect_to users_url
   end
   
-  def search
-    if params[:name].present?
-      @users = User.where('name LIKE ?', "%#{params[:name]}%")
-    else
-      @users = User.none
-    end
-  end
 
   private
     
