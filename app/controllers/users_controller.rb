@@ -58,6 +58,14 @@ class UsersController < ApplicationController
     end
     redirect_to users_url
   end
+  
+  def search
+    if params[:name].present?
+      @users = User.where('name LIKE ?', "%#{params[:name]}%")
+    else
+      @users = User.none
+    end
+  end
 
   private
     

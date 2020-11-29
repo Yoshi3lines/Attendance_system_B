@@ -75,8 +75,8 @@
           <td></td>
           <td>
             <% if day.started_at.present? && day.finished_at.present? %>
-              <!--str_timesに代入処理をして在社時間を計算ヘルパーに記載-->
-              <%= str_times = working_times(day.started_at, day.finished_at) %>
+              <!--str_timesに代入処理をして在社時間を計算ヘルパーに記載、時間区切りを15分切り捨てに設定-->
+              <%= str_times = working_times(day.started_at.floor_to(15.minutes), day.finished_at.floor_to(15.minutes)) %>
               <% @total_working_times = @total_working_times.to_f + str_times.to_f %>
             <% end %>
           </td>
