@@ -18,8 +18,4 @@ class Attendance < ApplicationRecord
       errors.add(:started_at, "より早い退勤時間は無効です") if started_at > finished_at
     end
   end
-  
-  # def started_at_is_invalid
-  #   errors.add(:finished_at, "を同時に入力してからやり直してください") if Date.today.started_at.nil? && finished_at.present?
-  # end
 end
